@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+</head>
+<body>
+    {% if product_detail %}
+    <table border="2px">
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Details</th>
+        <th>Available</th>
+        {% for i in product_detail%}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.cat}}</td>
+            <td>{{i.product_details}}</td>
+            <td>{{i.is_active}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+No Product Found!
+{% endif %}
+
+</body>
+</html>

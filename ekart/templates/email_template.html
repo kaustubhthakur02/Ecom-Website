@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+{% load humanize %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        strong {
+            color: #040404;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        .details{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://www.mxmindia.com/wp-content/uploads/2022/08/Ekart-New-Logo-scaled.jpg" alt="no" width="200px">
+        <h4>Dear {{ order.user_id.username }},</h4>
+        <p class="details">Your payment was successful. Here are your order details:</p>
+        <ul>
+            {% for product, quantity, total in product_details_qty %}
+            <li>
+                <div>
+                    <strong>Product Name:</strong> {{ product.name }} <br>
+                    <strong>Quantity:</strong> {{ quantity }} <br>
+                    <strong>Price:</strong> Rs.{{ total|intcomma }} <br>
+                    <strong>Details:</strong>{{ product.product_details}} <br>
+                    {% if product.id == 1%}
+                    <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/99486859-0ff3-46b4-949b-2d16af2ad421/custom-nike-dunk-high-by-you-shoes.png" alt="not" width="250px">
+                    {% elif product.id == 2%}
+                    <img src="https://3amoto.com/cdn/shop/products/mens-color-block-slim-casual-thin-lightweight-jacket.jpg?v=1637649307" alt="" width="250px">
+                    {% elif product.id == 3%}
+                    <img src="https://t3.ftcdn.net/jpg/04/83/25/50/360_F_483255019_m1r1ujM8EOkr8PamCHF85tQ0rHG3Fiqz.jpg" alt="" width="250px">
+                    {% elif product.id == 8%}
+                    <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/194887/01/sv03/fnd/IND/fmt/png/Zeta-Men's-Running-Shoes" alt="250px" width="250px">
+                    {% elif product.id == 9%}
+                    <img src="https://media.istockphoto.com/id/173239968/photo/skinny-tight-blue-jeans-on-white-background.jpg?s=612x612&w=0&k=20&c=HsI-xC12KkzjeCaFC4eQ33SZuL53EerbfLMkPuLpaVw=" alt="" width="250px">
+                    {% elif product.id == 10%}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQqDw1j53AGYYfSLTcygE1herWUSeX2P4gteCPqzBlA&s" alt="" width="250px">
+                    {% elif product.id == 11%}
+                    <img src="https://images.pexels.com/photos/1456737/pexels-photo-1456737.jpeg?cs=srgb&dl=pexels-ray-piedra-1456737.jpg&fm=jpg" alt="" width="250px">
+                    {% elif product.id == 12%}
+                    <img src="https://as2.ftcdn.net/v2/jpg/04/48/54/65/1000_F_448546530_6SYlbzvlV43tQ6TjetMcqLd2qdDZm3zT.jpg" alt="" width="250px">
+                    {% elif product.id == 13%}
+                    <img src="https://static.vecteezy.com/system/resources/previews/015/082/465/original/realistic-black-jacket-leather-for-men-on-white-background-vector.jpg" alt="" width="250px">
+                    {% endif %}
+
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="details"><strong>Total Amount:</strong>Rs.{{ final|floatformat:2|intcomma}}</p>
+        <img src="https://gifdb.com/images/thumbnail/pooh-and-piglet-thank-you-6wqrkd3xvlfer4i7.gif" alt="Thank You" width="200px">
+    </div>
+</body>
+</html>

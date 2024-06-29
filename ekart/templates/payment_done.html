@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+        }
+        .payment {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+        img {
+            width: 450px;
+            margin-bottom: -90px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="payment">
+        <img src="{% static 'images/payment_done.png' %}" alt="" width="450px">
+        <p style="text-align: center"> <span style="font-size: 25px; font-family: Tomorrow, sans-serif;">Your payment is Successfull</span><br><br>
+        <span style="color: rgb(0, 10, 10); font-size: 18px; font-family: Tomorrow, sans-serif; opacity: 0.8;">Thank you for your payment. An automated payment details will be sent to your registered email and message.</span><p>
+        <a href="{% url 'allproducts'%}" style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: red;" >Back to Home Page</a>
+    
+    </div>
+</body>
+</html>

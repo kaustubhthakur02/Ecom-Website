@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block block_body %}
+{% if Product %}
+    {% for i in Product %}
+    <div class="row">
+        {% if success %}
+        <div class="col-md-6 alert alert-success mt-4" style="display: block; text-align: center;  position: realtive; right: -25%;">
+            {{ success }}
+        </div>
+        {% elif already %}
+        <div class="col-md-6 alert alert-danger mt-4" style="display: block; text-align: center; position: relative; right: -25%;">
+            {{ already }}
+        </div>
+        {% endif %}
+        <div class="col-md-8 mt-5 mx-auto d-flex">
+            <div class="col-md-5">
+                <img src="{{ i.p_img.url }}" alt="" width="250">
+            </div>
+            <div class="col-md-6">
+                <h5>Product Details</h5>
+                <hr>
+                <p><strong>Product Name:</strong>{{ i.name }}</p>
+                <p><strong>Price :</strong>{{ i.price }}</p>
+                <p><strong>Details :</strong>{{ i.product_details }}</p>
+                <a href="/addcart/{{ i.id }}" class="btn btn-primary">Add to Cart</a>
+                <a href="{% url 'cartdetails' %}" class="btn btn-success">View Cart</a>
+                <a href="{% url 'allproducts' %}" class="btn btn-info">Shop More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
+
+<br><br>
+{% endblock %}

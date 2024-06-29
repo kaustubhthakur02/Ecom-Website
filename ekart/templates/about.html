@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: blue;
+            margin: 0; 
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;                                
+            margin: 0 auto;                            
+            padding: 20px;                 
+        }
+        .second {
+            display: flex;
+            align-items: center;
+            margin-top: 50px; 
+        }
+        .About {
+            flex: 1; 
+            color: rgb(255, 255, 255);
+            font-size: 50px; 
+            font-family: 'Protest Strike', sans-serif;
+        }
+        .cart {
+            margin-left: 20px; 
+            animation: moveBucket 5s linear infinite;
+        }
+
+        @keyframes moveBucket {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(50px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo" style="text-align: center;">
+            <img src="{% static "C:\Ecommerce\ekart\static\images\ekWhiteLogo.png" %}" alt="Ek logo" width="550">
+        </div>
+        <div class="second">
+            <div class="About">
+                <p>
+                    Ekart: India's e-commerce pulse since 2009. From humble beginnings, we span 20,000+ pin codes, delivering dreams and smiles sustainably. 
+                    Every parcel an empowered business, a connected community, and a happy customer. 
+                    Join the magic!
+                </p>
+            </div>
+            <div class="cart">
+                <img src="{% static 'C:\Ecommerce\ekart\static\images\bucket.png' %}" alt="bucket png" width="380">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

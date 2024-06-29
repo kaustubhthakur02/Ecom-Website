@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #d6aeae;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .delete{
+            background-color: red;
+        }
+        .delete:hover {
+            background-color: #f15959;
+        }
+    </style>
+{% extends 'navbar.html'%}
+{% block block_body %}<br><br><br>
+<div style="text-align: center; display: flex; flex-direction: column; align-content: center;">
+    <h1>Order Details Already Registered!!</h1>
+    <p>Click below to edit your details:</p>
+    <a href="/edit/{{ delivery_details.id }}"><button>Edit Details</button></a><br>
+    <div style="margin-top: 5px;">
+    <p>Click below to delete your details:</p>
+    <a href="/delete2/{{ delivery_details.id }}"><button class="delete">Delete Details</button></a><br><br><br><br><br><br><br><br><br><br>
+</div>
+</div>
+    {% endblock %}
